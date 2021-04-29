@@ -1,0 +1,460 @@
+/**************************************************************/
+/*****************************按钮*****************************/
+/**************************************************************/
+
+
+$--color-primary:#108cee;
+/**
+基础margin class类名
+ */
+//0 5 10 15 20 25 30
+@for $i from 0 through 6{
+  .mar_#{$i*5}{margin: $i*5+px !important;}
+}@for $i from 0 through 6{
+  .mar_r_#{$i*5}{margin-right: $i*5+px !important;}
+}
+@for $i from 0 through 6{
+  .mar_l_#{$i*5}{margin-left: $i*5+px !important;}
+}
+@for $i from 0 through 6{
+  .mar_t_#{$i*5}{margin-top: $i*5+px !important;}
+}
+@for $i from 0 through 6 {
+  .mar_b_#{$i*5} {margin-bottom: $i*5+px !important;}
+}
+/**
+基础padding class类名
+ */
+//0 5 10 15 20 15 30
+@for $i from 0 through 6{
+  .pad_#{$i*5}{padding: $i*5+px !important;}
+}
+@for $i from 0 through 6{
+  .pad_r_#{$i*5}{padding-right: $i*5+px !important;}
+}
+@for $i from 0 through 6{
+  .pad_l_#{$i*5}{padding-left: $i*5+px !important;}
+}
+.pad_l_40{padding-left:40px !important;}
+@for $i from 0 through 6{
+  .pad_t_#{$i*5}{padding-top: $i*5+px !important;}
+}
+@for $i from 0 through 6 {
+  .pad_b_#{$i*5} {padding-bottom: $i*5+px !important;}
+}
+/**
+基础width
+ */
+.w_220{width: 220px !important;}
+.w_200{width: 200px !important}
+.w_100{width: 100px !important}
+.w_250{width: 250px !important}
+.w_165{width: 165px !important}
+.w_130{width: 130px !important}
+.w_70{width: 70px}
+/**
+  浮动
+*/
+.fl{float: left;}
+.fr{float: right;}
+.bottom-solid{
+  border-bottom: #eeeeee solid 1px;
+  padding-bottom: 22px;
+  margin-bottom: -20px;
+}
+
+
+
+//基础按钮
+@mixin base-button($color, $bgColor, $w:90px, $h:38px ){
+  display: inline-block;
+  width: $w;
+  height: $h;
+  line-height: $h;
+  color: $color;
+  font: 14px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
+  text-align: center;
+  background: $bgColor;
+  border: 0;
+  cursor: pointer;
+  &:hover{
+    font-size: 15px;
+  }
+}
+/**************************************************************/
+/*****************************字体大小*****************************/
+/**************************************************************/
+//12 14 16 18 20 22 24 26 28 30
+@for $i from 1 through 10{
+  .font-#{10+2*$i}{
+    font-size: 10+2*$i+px !important;
+  }
+}
+//自定义
+@mixin font-x($n){
+  font-size: $n !important;
+}
+/**************************************************************/
+/*****************************手试*****************************/
+/**************************************************************/
+@mixin gradient-2($color1,$color2,$deg){
+  background-color: $color2;
+  background-image: linear-gradient($deg,$color2 0%,$color1 100%);
+  background-image: -webkit-linear-gradient($deg,$color2 0%,$color1 100%);
+  background-image: -moz-linear-gradient($deg,$color2 0%,$color1 100%);
+  background-image: -o-linear-gradient($deg,$color2 0%,$color1 100%);
+}
+/**************************************************************/
+/*****************************渐变*****************************/
+/**************************************************************/
+.cursor-pointer{
+  cursor: pointer;
+}
+/**************************************************************/
+/*****************************行显示*****************************/
+/**************************************************************/
+//单行超出省略
+.text-ellipsis{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+//多行超出省略
+@mixin text-more-ellipsis($n ){
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+}
+
+/**************************************************************/
+/*****************************布局*****************************/
+/**************************************************************/
+.text-center{
+  text-align:  center !important;
+}
+.text-left{
+  text-align:  left !important;
+}
+.text-right{
+  text-align:  right !important;
+}
+//布局  flex
+@mixin layout-flex{
+  display: flex;
+  display: -webkit-flex;
+}
+
+@mixin wrap-wrap{
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+//布局 水平方向
+@mixin layout-flex-r{
+  @include layout-flex;
+  flex-direction: row;
+}
+
+//布局 水平方向 反转
+@mixin layout-flex-r-reverse{
+  @include layout-flex;
+  flex-direction: row-reverse;
+}
+
+//布局 水平 右
+@mixin layout-flex-r-left{
+  @include layout-flex-r;
+  justify-content: left;
+}
+
+//布局 水平居中
+@mixin layout-flex-r-center{
+  @include layout-flex-r;
+  justify-content: center;
+}
+
+//布局 水平 右
+@mixin layout-flex-r-right{
+  @include layout-flex-r;
+  justify-content: right;
+}
+
+//布局 水平 end
+@mixin layout-flex-r-fd{
+  @include layout-flex-r;
+  justify-content: flex-end;
+}
+
+//布局 水平 两端对齐
+@mixin layout-flex-r-sb{
+  @include layout-flex-r;
+  justify-content:space-between;
+}
+
+//布局 水平 均匀分布
+@mixin layout-flex-r-sa{
+  @include layout-flex-r;
+  justify-content:space-around;
+}
+
+
+//布局 垂直方向
+@mixin layout-flex-c{
+  @include layout-flex;
+  flex-direction: column;
+}
+
+
+//布局 垂直居中
+@mixin layout-flex-c-center{
+  @include layout-flex-c;
+  justify-content: center;
+}
+
+//布局 垂直两端
+@mixin layout-flex-c-sb{
+  @include layout-flex-c;
+  justify-content: space-between;
+}
+//布局  垂直居底
+@mixin layout-flex-c-fe{
+  @include layout-flex-c;
+  justify-content: flex-end;
+}
+
+//布局  均匀
+@mixin layout-flex-c-sa{
+  @include layout-flex-c;
+  justify-content: space-around
+}
+
+//布局  均匀
+@mixin layout-flex-c-sa{
+  @include layout-flex-c;
+  justify-content: space-around
+}
+
+//布局 水平方向换行
+@mixin layout-flex-r-wrap{
+  @include wrap-wrap;
+  @include layout-flex-r;
+}
+
+@mixin hiddenLineMax {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/**************************************************************/
+/*****************************面板*****************************/
+/**************************************************************/
+
+@mixin panel-mask{
+  @include layout-flex;
+  position: absolute; top: 0; left: 0;
+  margin: auto;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, .4);
+}
+
+@mixin panel-a($w, $h ){
+  width: $w;
+  height: $h;
+  border: 1px solid #F5F5F5;
+  border-radius: 5px;
+  background: #E5E5E5;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+@mixin box-shadow-1{
+  box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+}
+
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+@mixin set-height($height){
+  height: $height;
+}
+
+@mixin set-width($width){
+  width: $width;
+}
+
+@mixin set-width-height($width, $height){
+  @include set-width($width);
+  @include set-height($height);
+}
+@mixin set-wh($w,$h){
+  @include set-width-height($w,$h);
+  line-height: $h;
+}
+
+
+@mixin set-h($h){
+  height: $h;
+  line-height: $h;
+}
+
+@mixin border-radius($s){
+  -webkit-border-radius: $s;
+  -moz-border-radius: $s;
+  border-radius: $s;
+}
+
+@mixin placeholder($color, $fontSize){
+  ::-webkit-input-placeholder,:-moz-placeholder,::-moz-placeholder,:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:$color;
+    font-size: $fontSize;
+  }
+}
+
+@mixin box-shadow($box-shadow){
+  -moz-box-shadow: $box-shadow;
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+/**************wyf******************/
+/* 公屏-- 小模块透明背景及内边距样式*/
+@mixin conponent_background{
+  background-color: rgba(19, 19, 19, 0.65);
+  padding:10px;
+  border-radius: 8px;
+}
+/**************wyf******************/
+
+/* 设置背景图片 */
+@mixin setBgImg($imgPath){
+  background-image: url(#{$static_url}#{$imgPath});
+}
+
+/* 设置背景图片 */
+@mixin setImgSrc($imgPath){
+  content:  url(#{$static_url}#{$imgPath});
+}
+
+@mixin singleLine(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+@mixin window-box() {
+  @include layout-flex-c;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-right: 76px solid transparent;
+  border-top: 35px solid transparent;
+  border-bottom: 50px solid transparent;
+}
+
+@mixin box-panel() {
+  @include layout-flex-c;
+  border-radius: 0 8px 8px 0;
+  background: $second-background;
+  border-right: 1px solid #291f28;
+  flex: 1;
+}
+@mixin box-center($x,$y){
+  top: $x;
+  left: $y;
+  transform: translate(-$y,-$x);
+  -webkit-transform: translate(-$y,-$x);
+  -o-transform: translate(-$y,-$x);
+  -moz-transform: translate(-$y,-$x);
+  -ms-transform: translate(-$y,-$x);
+}
+@mixin box-center-right($x,$y){
+  top: $x;
+  right: $y;
+  transform: translate(-$y,-$x);
+  -webkit-transform: translate(-$y,-$x);
+  -o-transform: translate(-$y,-$x);
+  -moz-transform: translate(-$y,-$x);
+  -ms-transform: translate(-$y,-$x);
+  position: absolute;
+}
+
+@mixin window() {
+  @include layout-flex-c;
+  position: fixed;
+  z-index: 199;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin panel() {
+  @include layout-flex-c;
+  background: $second-background;
+  flex: 1;
+}
+
+@mixin content() {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+@mixin game-panel() {
+  @include layout-flex-c;
+  flex: 1;
+}
+
+@mixin back_linear_gradient(){
+  background: linear-gradient(to bottom, #87aac2 0%,#617b9d 50%, #87aac2 100%);
+}
+
+
+
+*::-webkit-scrollbar-track{
+  background-color: #F5F5F5;
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.22);
+}
+
+/*定义滚动条高宽及背景*/
+*::-webkit-scrollbar{
+  width: 1px;
+  height: 2px;
+  background-color: #2d8cf0;
+}
+
+/*定义滚动条*/
+*::-webkit-scrollbar-thumb{
+  background-color: #2d8cf0;
+  border-radius: 5px;
+}
+
+/*火狐浏览器*/
+/*定义滚动条轨道，ie兼容模式*/
+*{
+
+  scrollbar-arrow-color: rgba(0, 116, 203, .1);; /*三角箭头的颜色*/
+  scrollbar-face-color: rgba(0, 116, 203, .1); /*立体滚动条的颜色（包括箭头部分的背景色）*/
+  scrollbar-3dlight-color: rgba(0, 116, 203, .1); /*立体滚动条亮边的颜色*/
+  scrollbar-highlight-color: rgba(0, 116, 203, .1); /*滚动条的高亮颜色（左阴影？）*/
+  scrollbar-shadow-color: rgba(0, 116, 203, .1); /*立体滚动条阴影的颜色*/
+  scrollbar-darkshadow-color: rgba(0, 116, 203, .1); /*立体滚动条外阴影的颜色*/
+  scrollbar-track-color: #fff; /*立体滚动条背景颜色*/
+  scrollbar-base-color: #fff; /*滚动条的基色*/
+}

@@ -1,0 +1,12 @@
+//基础样式
+@import "base";
+//flex布局  mixin
+@import "minix";
+//font
+@import "font";
+.van-field--disabled .van-field__label{
+  color: #000000 !important;
+}
+.van-field__control:disabled{
+  color: #000000 !important;
+}

@@ -1,0 +1,457 @@
+.
+├── README.md
+├── babel.config.js
+├── dist
+│   ├── css
+│   │   ├── chunk-08007e70.25360863.css
+│   │   ├── chunk-088a8289.694bd24c.css
+│   │   ├── chunk-14599706.ce994566.css
+│   │   ├── chunk-1a907a66.d3e07c40.css
+│   │   ├── chunk-2902101b.b4b0089e.css
+│   │   ├── chunk-2a1ef862.f0b4d5d7.css
+│   │   ├── chunk-46cbc2b3.dacbb385.css
+│   │   ├── chunk-58182946.8b2b9f92.css
+│   │   ├── chunk-597b3c0c.5f143fe3.css
+│   │   ├── chunk-5ada43ce.3f50d312.css
+│   │   ├── chunk-6027231c.9e37133b.css
+│   │   ├── chunk-72c85d2a.0ff8e8eb.css
+│   │   ├── chunk-73a7c8fd.e8817144.css
+│   │   ├── chunk-74c32f0e.1e9d3d55.css
+│   │   ├── chunk-765c382d.6e98eb98.css
+│   │   ├── chunk-b3daf25e.ed325c12.css
+│   │   ├── chunk-d9aec426.fd7b114d.css
+│   │   ├── chunk-fedfb4d4.8a71efb3.css
+│   │   ├── fanwenqiang.element-ui.d39e9fad.css
+│   │   └── index.98a2146d.css
+│   ├── favicon.ico
+│   ├── fonts
+│   │   ├── element-icons.535877f5.woff
+│   │   ├── element-icons.732389de.ttf
+│   │   ├── ionicons.143146fa.woff2
+│   │   ├── ionicons.99ac3308.woff
+│   │   └── ionicons.d535a25a.ttf
+│   ├── img
+│   │   ├── big_equip.2d697ea1.png
+│   │   ├── dianbiao.e40deae1.png
+│   │   ├── equip.bde1a5f4.png
+│   │   ├── flow.bac08360.png
+│   │   ├── home.6208cb77.png
+│   │   ├── icon-pump.81ec4e8d.png
+│   │   ├── icon-zhuoduyi.6c6624be.png
+│   │   ├── img-jingshui.ba7fecf0.png
+│   │   ├── ionicons.a2c4a261.svg
+│   │   ├── jingshui.eb13dc90.png
+│   │   ├── login_bg.25ba6f92.png
+│   │   ├── lora.cdf72a3d.png
+│   │   ├── mainindex_bg.b180e691.png
+│   │   ├── middle_equip.eaf07abf.png
+│   │   ├── nb.fb6fb314.png
+│   │   ├── plc.ec0eaf5e.png
+│   │   ├── pressure_pump.40284c20.png
+│   │   ├── shuizhijiance.516e9f56.png
+│   │   ├── valve.f731563c.png
+│   │   ├── water_company.1fd08bad.png
+│   │   └── wave.2b4f8e89.png
+│   ├── index.html
+│   ├── js
+│   │   ├── chunk-08007e70.925ccfa8.js
+│   │   ├── chunk-08007e70.925ccfa8.js.map
+│   │   ├── chunk-088a8289.cd8b7eaa.js
+│   │   ├── chunk-088a8289.cd8b7eaa.js.map
+│   │   ├── chunk-14599706.a6d20ac8.js
+│   │   ├── chunk-14599706.a6d20ac8.js.map
+│   │   ├── chunk-1a907a66.ba0a0021.js
+│   │   ├── chunk-1a907a66.ba0a0021.js.map
+│   │   ├── chunk-2902101b.137bffb5.js
+│   │   ├── chunk-2902101b.137bffb5.js.map
+│   │   ├── chunk-2a1ef862.5ac2e4aa.js
+│   │   ├── chunk-2a1ef862.5ac2e4aa.js.map
+│   │   ├── chunk-2d0b95b7.c3f40771.js
+│   │   ├── chunk-2d0b95b7.c3f40771.js.map
+│   │   ├── chunk-2d230417.ff17be1f.js
+│   │   ├── chunk-2d230417.ff17be1f.js.map
+│   │   ├── chunk-35e20315.48d435d7.js
+│   │   ├── chunk-35e20315.48d435d7.js.map
+│   │   ├── chunk-46cbc2b3.ec971da7.js
+│   │   ├── chunk-46cbc2b3.ec971da7.js.map
+│   │   ├── chunk-58182946.379115e1.js
+│   │   ├── chunk-58182946.379115e1.js.map
+│   │   ├── chunk-597b3c0c.7b6ec169.js
+│   │   ├── chunk-597b3c0c.7b6ec169.js.map
+│   │   ├── chunk-5ada43ce.0a685acf.js
+│   │   ├── chunk-5ada43ce.0a685acf.js.map
+│   │   ├── chunk-6027231c.0d97799b.js
+│   │   ├── chunk-6027231c.0d97799b.js.map
+│   │   ├── chunk-6a7e45e4.51be9a53.js
+│   │   ├── chunk-6a7e45e4.51be9a53.js.map
+│   │   ├── chunk-72c85d2a.8265cd0e.js
+│   │   ├── chunk-72c85d2a.8265cd0e.js.map
+│   │   ├── chunk-73a7c8fd.18c39b01.js
+│   │   ├── chunk-73a7c8fd.18c39b01.js.map
+│   │   ├── chunk-74c32f0e.12e0f2c4.js
+│   │   ├── chunk-74c32f0e.12e0f2c4.js.map
+│   │   ├── chunk-765c382d.f783a856.js
+│   │   ├── chunk-765c382d.f783a856.js.map
+│   │   ├── chunk-b3daf25e.ada1bda1.js
+│   │   ├── chunk-b3daf25e.ada1bda1.js.map
+│   │   ├── chunk-d9aec426.1471e163.js
+│   │   ├── chunk-d9aec426.1471e163.js.map
+│   │   ├── chunk-fedfb4d4.2d719251.js
+│   │   ├── chunk-fedfb4d4.2d719251.js.map
+│   │   ├── fanwenqiang.element-ui.60462e4e.js
+│   │   ├── fanwenqiang.element-ui.60462e4e.js.map
+│   │   ├── index.78243a13.js
+│   │   └── index.78243a13.js.map
+│   └── media
+│       └── water.7bcb5140.mp3
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── server.js
+├── src
+│   ├── api
+│   │   └── apiBase.js
+│   ├── assets
+│   │   ├── audio
+│   │   │   └── water.mp3
+│   │   ├── images
+│   │   │   ├── IMG_2980.JPG
+│   │   │   ├── IMG_2980.png
+│   │   │   ├── across_wall.png
+│   │   │   ├── arrow.png
+│   │   │   ├── avatar.png
+│   │   │   ├── big_equip.png
+│   │   │   ├── big_small.png
+│   │   │   ├── deep.png
+│   │   │   ├── dianbiao.png
+│   │   │   ├── dianpingui.png
+│   │   │   ├── down.png
+│   │   │   ├── equip.png
+│   │   │   ├── flow.png
+│   │   │   ├── green_lamp.png
+│   │   │   ├── icon_address.png
+│   │   │   ├── icon_body.png
+│   │   │   ├── icon_line.png
+│   │   │   ├── icon_params.png
+│   │   │   ├── icon_pipe.png
+│   │   │   ├── icon_text.png
+│   │   │   ├── icon_tool.png
+│   │   │   ├── jingshui.png
+│   │   │   ├── level01_16.png
+│   │   │   ├── lora.png
+│   │   │   ├── lora_shuibiao.png
+│   │   │   ├── main
+│   │   │   │   ├── home.png
+│   │   │   │   ├── icon_arrow.png
+│   │   │   │   ├── icon_industry.png
+│   │   │   │   ├── icon_standard.png
+│   │   │   │   ├── login_bg.png
+│   │   │   │   ├── login_title.png
+│   │   │   │   └── mainindex_bg.png
+│   │   │   ├── middle_equip.png
+│   │   │   ├── middle_small.png
+│   │   │   ├── nb.png
+│   │   │   ├── nb_shuibiao.png
+│   │   │   ├── niweiji.png
+│   │   │   ├── old
+│   │   │   │   ├── chuangan.png
+│   │   │   │   ├── famen.png
+│   │   │   │   ├── icon-liuliang.png
+│   │   │   │   ├── icon-plc-small.png
+│   │   │   │   ├── icon-plc.png
+│   │   │   │   ├── icon-pump.png
+│   │   │   │   ├── icon-qudao.png
+│   │   │   │   ├── icon-shuiwei.png
+│   │   │   │   ├── icon-shuizhi.png
+│   │   │   │   ├── icon-well.png
+│   │   │   │   ├── icon-wellpump.png
+│   │   │   │   ├── icon-yali.png
+│   │   │   │   ├── icon-zhuoduyi.png
+│   │   │   │   ├── icon_yulv.png
+│   │   │   │   ├── img-chendian.png
+│   │   │   │   ├── img-jingshui.png
+│   │   │   │   ├── kongzhi.png
+│   │   │   │   ├── liuliang.png
+│   │   │   │   ├── pointBotm.png
+│   │   │   │   ├── pointLeft.png
+│   │   │   │   ├── pointRight.png
+│   │   │   │   ├── pointTop.png
+│   │   │   │   ├── shuibeng.png
+│   │   │   │   ├── shuibo.png
+│   │   │   │   ├── shuiwei.png
+│   │   │   │   ├── water-01.gif
+│   │   │   │   ├── water-02.gif
+│   │   │   │   ├── water-03.gif
+│   │   │   │   ├── wave.png
+│   │   │   │   └── well_shuiwei.png
+│   │   │   ├── plc.png
+│   │   │   ├── pointBotm.png
+│   │   │   ├── pointLeft.png
+│   │   │   ├── pointRight.png
+│   │   │   ├── pointTop.png
+│   │   │   ├── pressure.png
+│   │   │   ├── pressure_pump.png
+│   │   │   ├── redBotm.png
+│   │   │   ├── redLeft.png
+│   │   │   ├── redRight.png
+│   │   │   ├── redTop.png
+│   │   │   ├── red_lamp.png
+│   │   │   ├── shuizhijiance.png
+│   │   │   ├── small_equip.png
+│   │   │   ├── switch_box.png
+│   │   │   ├── switch_btn.png
+│   │   │   ├── up.png
+│   │   │   ├── valve.png
+│   │   │   ├── vertical_wall.png
+│   │   │   ├── water_company.png
+│   │   │   ├── water_level.png
+│   │   │   ├── water_pump.png
+│   │   │   └── zhuoduyi.png
+│   │   ├── js
+│   │   │   ├── 3d_three.js
+│   │   │   ├── cookie.js
+│   │   │   ├── drag.js
+│   │   │   ├── jquery-ui.js
+│   │   │   ├── jquery.min.js
+│   │   │   ├── l_drag.min.js
+│   │   │   ├── l_zoom.min.js
+│   │   │   ├── pics.js
+│   │   │   ├── three.min.js
+│   │   │   ├── time.js
+│   │   │   └── zoom.js
+│   │   └── scss
+│   │       ├── _animate.scss
+│   │       ├── _base.scss
+│   │       ├── _button.scss
+│   │       ├── _font.scss
+│   │       ├── _i_tooltip.scss
+│   │       ├── _jquery_ui.scss
+│   │       ├── _keyframes.scss
+│   │       ├── _minix.scss
+│   │       ├── _old_zutaitu.scss
+│   │       ├── _zoom.scss
+│   │       ├── common.scss
+│   │       └── my-theme.less
+│   ├── entries
+│   │   └── index
+│   │       ├── App.vue
+│   │       ├── http.js
+│   │       ├── main.js
+│   │       ├── router.js
+│   │       ├── views
+│   │       │   ├── back
+│   │       │   │   ├── Index.vue
+│   │       │   │   ├── header
+│   │       │   │   │   ├── BaseInfo.vue
+│   │       │   │   │   ├── HeaderIndex.vue
+│   │       │   │   │   ├── HeaderLogout.vue
+│   │       │   │   │   └── HeaderMenu.vue
+│   │       │   │   └── main
+│   │       │   │       ├── system
+│   │       │   │       │   ├── SystemIndex.vue
+│   │       │   │       │   ├── SystemMain.vue
+│   │       │   │       │   ├── SystemMenu.vue
+│   │       │   │       │   ├── group
+│   │       │   │       │   │   ├── GroupIndex.vue
+│   │       │   │       │   │   └── dialog
+│   │       │   │       │   │       ├── EleDialog.vue
+│   │       │   │       │   │       ├── GroupAddAndDialog.vue
+│   │       │   │       │   │       ├── ProjectDialog.vue
+│   │       │   │       │   │       └── UserConfigure.vue
+│   │       │   │       │   ├── organization
+│   │       │   │       │   │   ├── OrganizationIndex.vue
+│   │       │   │       │   │   └── dialog
+│   │       │   │       │   │       └── AddOrEditDialog.vue
+│   │       │   │       │   ├── post
+│   │       │   │       │   │   ├── PostIndex.vue
+│   │       │   │       │   │   └── dialog
+│   │       │   │       │   │       ├── PostAddDialog.vue
+│   │       │   │       │   │       └── PostAddOrEdit.vue
+│   │       │   │       │   ├── project
+│   │       │   │       │   │   ├── ProjectIndex.vue
+│   │       │   │       │   │   └── dialog
+│   │       │   │       │   │       └── ProjectAddOrEdit.vue
+│   │       │   │       │   └── user
+│   │       │   │       │       ├── UserIndex.vue
+│   │       │   │       │       └── dialog
+│   │       │   │       │           ├── UserInfoDialog.vue
+│   │       │   │       │           └── UserPasswordDialog.vue
+│   │       │   │       └── zutaitu
+│   │       │   │           ├── ZutaituBody.vue
+│   │       │   │           ├── ZutaituCell.vue
+│   │       │   │           ├── ZutaituIndex.vue
+│   │       │   │           ├── ZutaituMain.vue
+│   │       │   │           ├── ZutaituMenu.vue
+│   │       │   │           └── dialog
+│   │       │   │               ├── ZutaituBodyDialog.vue
+│   │       │   │               └── ZutaituCellDialog.vue
+│   │       │   ├── card
+│   │       │   │   └── CardIndex.vue
+│   │       │   ├── components
+│   │       │   │   ├── CloudTreeGroupSingle.vue
+│   │       │   │   └── CompTitle.vue
+│   │       │   ├── drag
+│   │       │   │   ├── DataDrawer.vue
+│   │       │   │   ├── Index.vue
+│   │       │   │   ├── IndexSubmit.vue
+│   │       │   │   ├── body
+│   │       │   │   │   ├── BodyDrawer.vue
+│   │       │   │   │   ├── BodyIndex.vue
+│   │       │   │   │   ├── BodyJingShui.vue
+│   │       │   │   │   ├── BodyPumpHouse.vue
+│   │       │   │   │   └── BodyWaterWorks.vue
+│   │       │   │   ├── channels
+│   │       │   │   │   ├── ChannelDianPinGui.vue
+│   │       │   │   │   ├── ChannelDrawer.vue
+│   │       │   │   │   ├── ChannelFlow.vue
+│   │       │   │   │   ├── ChannelIndex.vue
+│   │       │   │   │   ├── ChannelLoraShuibiao.vue
+│   │       │   │   │   ├── ChannelNbShuibiao.vue
+│   │       │   │   │   ├── ChannelNiWeiJi.vue
+│   │       │   │   │   ├── ChannelPressure.vue
+│   │       │   │   │   ├── ChannelPressurePump.vue
+│   │       │   │   │   ├── ChannelShuiZhiJianCe.vue
+│   │       │   │   │   ├── ChannelTurbidityMeter.vue
+│   │       │   │   │   ├── ChannelValve.vue
+│   │       │   │   │   ├── ChannelWaterLevel.vue
+│   │       │   │   │   ├── ChannelWaterPool.vue
+│   │       │   │   │   └── ChannelWaterPump.vue
+│   │       │   │   ├── gateway
+│   │       │   │   │   ├── Gateway.vue
+│   │       │   │   │   ├── GatewayDrawer.vue
+│   │       │   │   │   ├── GatewayIndex.vue
+│   │       │   │   │   └── GatewayPlc.vue
+│   │       │   │   ├── line
+│   │       │   │   │   ├── LineAcross.vue
+│   │       │   │   │   ├── LineDrawer.vue
+│   │       │   │   │   ├── LineIndex.vue
+│   │       │   │   │   └── LineVertical.vue
+│   │       │   │   ├── pipe
+│   │       │   │   │   ├── IndexComPipe.vue
+│   │       │   │   │   ├── IndexComTopPipe.vue
+│   │       │   │   │   ├── IndexRowLeftPipe.vue
+│   │       │   │   │   ├── IndexRowPipe.vue
+│   │       │   │   │   ├── IndexSkewRowRight.vue
+│   │       │   │   │   ├── Pipe.vue
+│   │       │   │   │   ├── PipeDrawer.vue
+│   │       │   │   │   └── PipeIndex.vue
+│   │       │   │   ├── text
+│   │       │   │   │   ├── Text.vue
+│   │       │   │   │   ├── TextDrawer.vue
+│   │       │   │   │   └── TextIndex.vue
+│   │       │   │   ├── title
+│   │       │   │   │   └── TitleIndex.vue
+│   │       │   │   └── tool
+│   │       │   │       ├── ToolBodys.vue
+│   │       │   │       ├── ToolChannels.vue
+│   │       │   │       ├── ToolGateway.vue
+│   │       │   │       ├── ToolIndex.vue
+│   │       │   │       ├── ToolLines.vue
+│   │       │   │       ├── ToolPipeList.vue
+│   │       │   │       └── ToolTexts.vue
+│   │       │   ├── list
+│   │       │   │   ├── ListIndex.vue
+│   │       │   │   ├── ListProject.vue
+│   │       │   │   ├── ListUnit.vue
+│   │       │   │   └── ListZutaitu.vue
+│   │       │   ├── login
+│   │       │   │   └── Login.vue
+│   │       │   ├── main
+│   │       │   │   └── MainIndex.vue
+│   │       │   ├── new
+│   │       │   │   ├── Index.vue
+│   │       │   │   ├── IndexBody.vue
+│   │       │   │   ├── IndexChannel.vue
+│   │       │   │   ├── IndexCommon.vue
+│   │       │   │   ├── IndexGateway.vue
+│   │       │   │   ├── IndexLegend.vue
+│   │       │   │   ├── IndexLine.vue
+│   │       │   │   ├── IndexPipe.vue
+│   │       │   │   ├── IndexSubmit.vue
+│   │       │   │   ├── IndexText.vue
+│   │       │   │   ├── IndexTitle.vue
+│   │       │   │   ├── body
+│   │       │   │   │   ├── BodyJingShui.vue
+│   │       │   │   │   ├── BodyWaterCompany.vue
+│   │       │   │   │   └── BodyWaterPump.vue
+│   │       │   │   ├── channel
+│   │       │   │   │   ├── ChannelDianPinGui.vue
+│   │       │   │   │   ├── ChannelFlow.vue
+│   │       │   │   │   ├── ChannelLoraShuibiao.vue
+│   │       │   │   │   ├── ChannelNbShuibiao.vue
+│   │       │   │   │   ├── ChannelNiWeiJi.vue
+│   │       │   │   │   ├── ChannelPressure.vue
+│   │       │   │   │   ├── ChannelPressurePump.vue
+│   │       │   │   │   ├── ChannelShuiZhiJianCe.vue
+│   │       │   │   │   ├── ChannelTurbidityMeter.vue
+│   │       │   │   │   ├── ChannelValve.vue
+│   │       │   │   │   ├── ChannelWaterLevel.vue
+│   │       │   │   │   ├── ChannelWaterPool.vue
+│   │       │   │   │   ├── ChannelWaterPump.vue
+│   │       │   │   │   └── dialog
+│   │       │   │   │       ├── ChannelDialog.vue
+│   │       │   │   │       ├── PumpOpenDialog.vue
+│   │       │   │   │       └── WhaterLevelDialog.vue
+│   │       │   │   ├── components
+│   │       │   │   │   └── CompSwitch.vue
+│   │       │   │   ├── data
+│   │       │   │   │   ├── common.js
+│   │       │   │   │   ├── source0.js
+│   │       │   │   │   ├── source0.vue
+│   │       │   │   │   ├── source1.js
+│   │       │   │   │   ├── source2.js
+│   │       │   │   │   └── source3.js
+│   │       │   │   └── dialog
+│   │       │   │       └── GatewayDialog.vue
+│   │       │   ├── old
+│   │       │   │   ├── DesignChartOne.vue
+│   │       │   │   ├── data
+│   │       │   │   │   ├── common.js
+│   │       │   │   │   └── source1.js
+│   │       │   │   ├── dialog
+│   │       │   │   │   ├── FlowMeterDialog.vue
+│   │       │   │   │   ├── GatewayDialog.vue
+│   │       │   │   │   ├── OpenDialog.vue
+│   │       │   │   │   ├── PressureDialog.vue
+│   │       │   │   │   └── StatisticsDialog.vue
+│   │       │   │   ├── menu
+│   │       │   │   │   ├── MenuAlarm.vue
+│   │       │   │   │   ├── MenuCommunicate.vue
+│   │       │   │   │   ├── MenuControl.vue
+│   │       │   │   │   ├── MenuData.vue
+│   │       │   │   │   ├── MenuElectricity.vue
+│   │       │   │   │   └── MenuList.vue
+│   │       │   │   └── template
+│   │       │   │       ├── Channel.vue
+│   │       │   │       ├── Gateway.vue
+│   │       │   │       ├── Line.vue
+│   │       │   │       ├── MenuList.vue
+│   │       │   │       ├── NewBody.vue
+│   │       │   │       ├── NewChannel.vue
+│   │       │   │       ├── NewCommon.vue
+│   │       │   │       ├── NewGateway.vue
+│   │       │   │       ├── NewLine.vue
+│   │       │   │       ├── NewPipe.vue
+│   │       │   │       ├── NewSwitch.vue
+│   │       │   │       ├── NewText.vue
+│   │       │   │       ├── Pipe.vue
+│   │       │   │       ├── SubmitBtn.vue
+│   │       │   │       └── TempEquipDesc.vue
+│   │       │   └── project
+│   │       │       ├── ProjectBaseInfoIndex.vue
+│   │       │       └── zutaitu
+│   │       │           ├── ZuTaTuIndex.vue
+│   │       │           └── ZuTaituDialog.vue
+│   │       └── vuex
+│   │           ├── back_store.js
+│   │           ├── cloud_store.js
+│   │           ├── old_store.js
+│   │           └── store.js
+│   └── mock.js
+├── test.html
+├── tree.text
+├── vue.config.js
+└── yarn.lock
+
+64 directories, 390 files
