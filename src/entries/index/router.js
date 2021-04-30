@@ -9,11 +9,31 @@ const vm = new Vue({
 });
 
 const router = new Router({
-	base:"/bc",
 	routes: [
 		{
 			path: '/',
 			redirect: '/collect/page',
+		},
+		{
+			path: '/video/page',
+			component: (resolve) => require(['@/entries/index/views/VideosPage.vue'], resolve),
+			meta: {
+				title: "视频"
+			},
+		},
+		{
+			path: '/mine/page',
+			component: (resolve) => require(['@/entries/index/views/MinePage.vue'], resolve),
+			meta: {
+				title: "我的"
+			},
+		},
+		{
+			path: '/collect/page',
+			component: (resolve) => require(['@/entries/index/views/BusinessCollectPage.vue'], resolve),
+			meta: {
+				title: "首页"
+			},
 		},
 	]
 });
