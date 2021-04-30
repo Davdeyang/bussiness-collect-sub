@@ -37,8 +37,7 @@ export default {
                     date: "1天前",
                 },
                 {
-                    title:
-                        "不要眼眶一红，就觉得人间不值得，散伙是人间常态，你我怎能例外。",
+                    title:"不要眼眶一红，就觉得人间不值得，散伙是人间常态，你我怎能例外。",
                     company: "中国电信",
                     date: "1天前",
                     img: require("../../../../../assets/images/head2.jpeg"),
@@ -90,7 +89,8 @@ export default {
             .new-box-item-right {
                 overflow: hidden;
                 img {
-                    width: 81px;
+                    width: 100%;
+                    height: 80px;
                 }
             }
         }
