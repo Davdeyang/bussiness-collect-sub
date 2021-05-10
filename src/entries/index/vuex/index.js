@@ -7,6 +7,8 @@ export default new Vuex.Store({
 		common_back_color:'#3a74c5',             //公共背景色
 		form_margin_top:15,                      //表单距上一元素的高度
 		insertMiddleIndex:'',
+		pic_current_url:'/api/appendix/image/',  //图片路径前缀
+		read_num:0                                //阅读量
 	},
 
 	mutations:{
@@ -19,7 +21,12 @@ export default new Vuex.Store({
 		SetFormPaddingLeftRight(state,data){
 			state.form_padding_left_right = data;
 		},
-	
+		SetPicCurrentUrl(state,data){
+			state.pic_current_url = data;
+		},
+		setReadNum(state,num){
+			state.read_num = state.read_num + num;
+		}
 	},
 
 	getters:{
@@ -29,6 +36,6 @@ export default new Vuex.Store({
 
 		subManagerGroup:state => {
 			return state.subManagerGroup
-		}
+		},
 	}
 })

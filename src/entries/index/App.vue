@@ -7,7 +7,6 @@
 </template>
 
 <script>
-	import cookie from '../../assets/js/cookie.js'
 	const storage = window.localStorage;
     export default {
         name: 'index',

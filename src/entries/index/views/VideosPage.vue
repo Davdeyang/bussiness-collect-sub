@@ -1,23 +1,44 @@
 <template>
     <div class="video-box">
         <van-search
-            v-model="value"
+            v-model="title"
             shape="round"
             background="#ee4945"
             placeholder="请输入搜索关键词"
+            @search="getNewsList()"
         />
-        <section>
+
+        <section v-if="searchList.length <= 0">
             <van-tabs v-model="active">
-                <van-tab title="新闻">
-                    <mine-news></mine-news>
-                </van-tab>
                 <van-tab title="视频">
                     <mine-video></mine-video>
                 </van-tab>
-                 <van-tab title="一线">
-                    <mine-video></mine-video>
+                <van-tab title="新闻">
+                    <mine-news></mine-news>
+                </van-tab>
+                <van-tab title="一线">
+                    一线
                 </van-tab>
             </van-tabs>
+        </section>
+        <section v-else-if="searchList.length > 0">
+            <ul class="video-box-list">
+                <li
+                    class="video-box-list-item"
+                    v-for="(vid, index) in searchList"
+                    :key="index"
+                    @click="handleClickToVideoDetail(index, vid)"
+                >
+                    <video
+                        :src="'/api/appendix/loads/' + vid.video_id + '.jspx'"
+                        controls
+                    ></video>
+                    <div class="video-box-item-bottom">
+                        <span>{{ vid.title }}</span>
+                        <span>{{ vid.publish_time }}</span>
+                    </div>
+                </li>
+            </ul>
         </section>
         <footer>
             <mine-footer></mine-footer>
@@ -38,34 +59,53 @@ export default {
     },
     data() {
         return {
-            value: "你大爷的",
-            videoList: [
-                {
-                    video: require("../../../assets/video/视频一.mp4"),
-                    icon: "iconfont icon-zhongguodianxin",
-                    company: "中国电信",
-                    date: "45分钟前",
-                    icons: "iconfont icon-chakan",
-                    looks: 1000,
-                },
-                {
-                    video: require("../../../assets/video/视频二.mp4"),
-                    icon: "iconfont icon-youjiantou",
-                    company: "中国电信",
-                    date: "45分钟前",
-                    icons: "iconfont icon-youjiantou",
-                    looks: 1000,
-                },
-                {
-                    video: require("../../../assets/video/视频一.mp4"),
-                    icon: "iconfont icon-youjiantou",
-                    company: "中国电信",
-                    date: "45分钟前",
-                    icons: "iconfont icon-youjiantou",
-                    looks: 1000,
-                },
-            ],
+            active: 0,
+            title: "",
+            searchList: [],
         };
+    },
+
+    methods: {
+        getNewsList: async function () {
+            let vm = this;
+            const toast = vm.$toast.loading({
+                message: "加载中...",
+                forbidClick: true,
+                loadingType: "spinner",
+                duration: 200000,
+            });
+
+            let param = {
+                title: vm.title,
+            };
+
+            const res = await vm.http.get(
+                "/api/selectact/query.jspx?resid=IDKO29N4TY",
+                param
+            );
+            if (!res) {
+                return;
+            }
+            let data = res.data;
+            if (data.status) {
+                data.data.forEach((item) => {
+                    if (item._category === "视频") {
+                        vm.searchList.push(item);
+                    }
+                });
+                toast.clear();
+            }
+        },
+
+        handleClickToVideoDetail(index, vid) {
+            let vm = this;
+            vm.$router.push({
+                path: `/videoDetail/${index}`,
+                query: {
+                    video: vid,
+                },
+            });
+        },
     },
 };
 </script>

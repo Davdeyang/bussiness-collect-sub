@@ -5,55 +5,97 @@
                 class="news-box-list-item"
                 v-for="(item, index) in newsList"
                 :key="index"
+                @click="handleClickToListDetail(index, item)"
             >
                 <van-row>
                     <van-col class="new-box-item-left" span="16">
                         <p class="news-box-title">{{ item.title }}</p>
-                        <span class="new-box-company">{{ item.company }}</span>
-                        <span class="new-box-date">{{ item.date }}</span>
+                        <p>{{ item.digest }}</p>
+                        <span class="new-box-company"
+                            >阅读量 {{ item.readnum }}</span
+                        >
+                        <span class="new-box-date">{{
+                            item.publish_time
+                        }}</span>
                     </van-col>
                     <van-col class="new-box-item-right" span="8">
-                        <img :src="item.img" alt="" />
+                        <img
+                            :src="
+                                '/api/appendix/image/' +
+                                item.picture_id +
+                                '.jspx'
+                            "
+                            alt=""
+                        />
                     </van-col>
                 </van-row>
             </li>
         </ul>
-        <div class="news-box-video">
-            <p>
-                {{video_title.title}}
-            </p>
-            <video autoplay :src="video_title.video"></video>
-        </div>
     </div>
 </template>
+
 <script>
+import listDetails from "../../../js/listDetails";
 export default {
     data() {
         return {
-            newsList: [
-                {
-                    title: "中国电信与中国建研院签署战略合作协议",
-                    company: "中国电信",
-                    date: "1天前",
-                },
-                {
-                    title:"不要眼眶一红，就觉得人间不值得，散伙是人间常态，你我怎能例外。",
-                    company: "中国电信",
-                    date: "1天前",
-                    img: require("../../../../../assets/images/head2.jpeg"),
-                },
-                {
-                    title: "一个嗯，一个哦，毁了我想说的所有话",
-                    company: "中国电信",
-                    date: "1天前",
-                    img: require("../../../../../assets/images/head3.jpeg"),
-                },
-            ],
-            video_title: {
-                title: "服了肯定撒荆防颗粒sad接口发了肯定积分卡萨地方撒大连科技方式拉拉裤京东方",
-                video: require("../../../../../assets/video/视频一.mp4"),
-            },
+            newsList: [],
+            listId: "",
+            listDetail: listDetails,
         };
+    },
+
+    mounted() {
+        let vm = this;
+        vm.getNewsList();
+    },
+
+
+    methods: {
+        // 获取新闻列表
+        getNewsList: async function () {
+            let vm = this;
+
+            const toast = vm.$toast.loading({
+                message: "加载中...",
+                forbidClick: true,
+                loadingType: "spinner",
+                duration: 200000,
+            });
+
+            let param = {};
+
+            const res = await vm.http.get(
+                "/api/selectact/query.jspx?resid=IDKO29N4TY",
+                param
+            );
+            if (!res) {
+                return;
+            }
+            let data = res.data;
+            if (data.status) {
+                data.data.forEach((item) => {
+                    if (item._category === "新闻") {
+                        vm.newsList.push(item);
+                        vm.listId = item.id;
+                        item.readnum = vm.$store.state.read_num;
+                    }
+                });
+                toast.clear();
+            }
+        },
+
+        // 进入详情页面
+        handleClickToListDetail(index, item) {
+            let vm = this;
+            // vm.$store.commit("setReadNum", 1);
+            vm.$router.push({
+                path: `/newsDetail/${index}`,
+                query: {
+                    item: item,
+                },
+            });
+        },
     },
 };
 </script>
@@ -69,7 +111,7 @@ export default {
             background: #ffff;
             border-bottom: 1px solid #eee;
             padding: 10px 15px;
-
+            position: relative;
             .new-box-item-left {
                 .news-box-title {
                     font-size: 16px;
@@ -80,9 +122,14 @@ export default {
                 .new-box-company {
                     color: #999999;
                     margin-right: 5px;
+                    position: absolute;
+                    bottom: 0;
                 }
                 .new-box-date {
                     color: #999999;
+                    position: absolute;
+                    bottom: 0;
+                    left: 80px;
                 }
             }
 
@@ -99,7 +146,7 @@ export default {
     .news-box-video {
         background: #ffff;
         padding: 0 10px;
-        p{
+        p {
             padding: 5px 0;
             font-size: 16px;
         }

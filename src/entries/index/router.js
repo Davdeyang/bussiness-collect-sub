@@ -35,6 +35,20 @@ const router = new Router({
 				title: "首页"
 			},
 		},
+		{
+			path: '/newsDetail/:id',
+			component: (resolve) => require(['@/entries/index/views/component/newsDetail/NewsDetailPage.vue'], resolve),
+			meta: {
+				title: "列表详情"
+			},
+		},
+		{
+			path: '/videoDetail/:id',
+			component: (resolve) => require(['@/entries/index/views/component/videoDetail/VideoDetailPage.vue'], resolve),
+			meta: {
+				title: "视频详情"
+			},
+		},
 	]
 });
 /**
