@@ -10,22 +10,22 @@
             <van-search
                 v-model="search"
                 shape="round"
-                background="#ee4945"
+                background="#3a74c5"
                 placeholder="请输入搜索关键词"
                 @search="getNewsList()"
             />
         </header>
         <section v-if="searchList.length <= 0">
-            <van-tabs v-model="active">
+            <van-tabs v-model="active" color="#3a74c5">
                 <van-tab title="新闻">
                     <mine-news></mine-news>
                 </van-tab>
                 <van-tab title="视频">
                     <mine-video></mine-video>
                 </van-tab>
-                <van-tab title="一线">一线</van-tab>
-                <van-tab title="媒体">媒体</van-tab>
-                <van-tab title="公告">公告</van-tab>
+                <van-tab title="一线"></van-tab>
+                <van-tab title="媒体"></van-tab>
+                <van-tab title="公告"></van-tab>
             </van-tabs>
         </section>
         <section v-else-if="searchList.length > 0">
@@ -116,7 +116,6 @@ export default {
                         vm.searchList.push(item);
                     }
                 });
-                // vm.searchList = data.data;
                 toast.clear();
             }
         },
@@ -133,6 +132,7 @@ export default {
     },
 };
 </script>
+
 
 <style scoped lang="scss">
 .business-collect-box {
@@ -181,7 +181,7 @@ export default {
         width: 100%;
         position: fixed;
         bottom: 0;
-        background: #ffffff;
+        background: #fcfafa;
     }
 }
 </style>

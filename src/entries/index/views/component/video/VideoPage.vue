@@ -8,7 +8,7 @@
                 @click="handleClickToVideoDetail(index, vid)"
             >
                 <video
-                    :src="'/api/appendix/loads/?ids=' + vid.video_id + '.jspx'"
+                    :src="'/api/appendix/preview/' + vid.video_id + '.jspx'"
                     controls
                 ></video>
                 <div class="video-box-item-bottom">
@@ -78,14 +78,12 @@ export default {
 
 <style scoped lang="scss">
 .video-box {
-    width: 100%;
-    height: 100%;
     background: #ffffff;
     .video-box-list {
         overflow: hidden;
         .video-box-list-item {
             margin-top: 10px;
-
+            padding: 0 10px;
             .video-box-item-bottom {
                 span {
                     margin: 0 10px;
@@ -93,6 +91,7 @@ export default {
             }
             video {
                 width: 100%;
+                height: 200px;
             }
         }
     }

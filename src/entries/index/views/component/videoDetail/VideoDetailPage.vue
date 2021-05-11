@@ -1,7 +1,7 @@
 <template>
     <div class="video-detail-box">
         <video
-            :src="'/api/appendix/loads/' + listDetail.video_id + '.jspx'"
+            :src="'/api/appendix/preview/' + listDetail.video_id +'.jspx'"
             controls
         ></video>
         <div class="video-box-item-bottom">
@@ -61,6 +61,7 @@ export default {
     padding: 10px;
     video {
         width: 100%;
+        height: 200px;
     }
 }
 </style>

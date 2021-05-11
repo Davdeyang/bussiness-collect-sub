@@ -11,9 +11,7 @@
                     <van-col class="new-box-item-left" span="16">
                         <p class="news-box-title">{{ item.title }}</p>
                         <p>{{ item.digest }}</p>
-                        <span class="new-box-company"
-                            >阅读量 {{ item.readnum }}</span
-                        >
+                        <span class="new-box-company">浏览量 {{ item.readnum }}</span>
                         <span class="new-box-date">{{
                             item.publish_time
                         }}</span>
@@ -50,7 +48,6 @@ export default {
         vm.getNewsList();
     },
 
-
     methods: {
         // 获取新闻列表
         getNewsList: async function () {
@@ -78,9 +75,9 @@ export default {
                     if (item._category === "新闻") {
                         vm.newsList.push(item);
                         vm.listId = item.id;
-                        item.readnum = vm.$store.state.read_num;
                     }
                 });
+                // alert(JSON.stringify(vm.newsList))
                 toast.clear();
             }
         },
@@ -88,7 +85,6 @@ export default {
         // 进入详情页面
         handleClickToListDetail(index, item) {
             let vm = this;
-            // vm.$store.commit("setReadNum", 1);
             vm.$router.push({
                 path: `/newsDetail/${index}`,
                 query: {

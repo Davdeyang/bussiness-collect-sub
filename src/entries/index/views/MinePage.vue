@@ -19,7 +19,7 @@
             </div>
         </header>
 
-        <main>
+        <!-- <main>
             <div class="video-box-item-bottom">
                 <p class="mine-mian-history">浏览记录</p>
                 <video
@@ -28,14 +28,8 @@
                     controls
                 ></video>
                 <span>
-                    <i class="iconfont icon-zhongguodianxin"></i>
+                    {{list.content}}
                 </span>
-                <span class="bottom-">中国电信</span>
-                <span>45分钟</span>
-                <span>
-                    <i class="iconfont icon-chakan"></i>
-                </span>
-                <span>1000</span>
             </div>
             <div class="mine-mian-second">
                 <van-row>
@@ -50,7 +44,7 @@
                 </van-row>
             </div>
 
-        </main>
+        </main> -->
 
         <footer>
             <mine-footer></mine-footer>
@@ -75,7 +69,7 @@ export default {
             },
 
             list: {
-                content: "课文的四发数据科技阀打开了房间实力坑爹富士康",
+                content: "视频内容",
                 company: "中国电信",
                 dates: "1天前",
                 img: require("../../../assets/images/head2.jpeg"),
@@ -194,7 +188,7 @@ export default {
         width: 100%;
         position: fixed;
         bottom: 0;
-        background: #ffffff;
+        background: #fcfafa;
     }
 }
 </style>

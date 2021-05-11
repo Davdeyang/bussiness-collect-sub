@@ -1,15 +1,15 @@
 <template>
-    <div class="video-box">
+    <div class="video-boxs">
         <van-search
             v-model="title"
             shape="round"
-            background="#ee4945"
+            background="#3a74c5"
             placeholder="请输入搜索关键词"
             @search="getNewsList()"
         />
 
         <section v-if="searchList.length <= 0">
-            <van-tabs v-model="active">
+            <van-tabs v-model="active" color="#3a74c5">
                 <van-tab title="视频">
                     <mine-video></mine-video>
                 </van-tab>
@@ -17,7 +17,6 @@
                     <mine-news></mine-news>
                 </van-tab>
                 <van-tab title="一线">
-                    一线
                 </van-tab>
             </van-tabs>
         </section>
@@ -30,7 +29,7 @@
                     @click="handleClickToVideoDetail(index, vid)"
                 >
                     <video
-                        :src="'/api/appendix/loads/' + vid.video_id + '.jspx'"
+                        :src="'/api/appendix/preview/' + vid.video_id +'.jspx'"
                         controls
                     ></video>
                     <div class="video-box-item-bottom">
@@ -66,6 +65,7 @@ export default {
     },
 
     methods: {
+
         getNewsList: async function () {
             let vm = this;
             const toast = vm.$toast.loading({
@@ -111,17 +111,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.video-box {
-    width: 100%;
-    height: 100%;
+.video-boxs {
     background: #ffffff;
 
     .video-box-list {
         overflow: hidden;
         .video-box-list-item {
             margin-top: 10px;
+            padding: 10px;
             video {
                 width: 100%;
+                height: 200px;
             }
         }
     }
@@ -131,7 +131,7 @@ export default {
         width: 100%;
         position: fixed;
         bottom: 0;
-        background: #ffffff;
+        background: #fcfafa;
     }
 }
 </style>

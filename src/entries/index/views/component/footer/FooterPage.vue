@@ -65,6 +65,6 @@ export default {
 }
 
 .active-color {
-    color: rgb(238, 73, 69);
+    color: #3a74c5;
 }
 </style>

@@ -1,16 +1,19 @@
 <template>
     <div class="news-Detail-box">
         <h1>{{ listDetail.title }}</h1>
-        <p
+        <div
             v-html="
+                listDetail.content ? 
                 listDetail.content.replace(
                     '/appendix/image',
                     '/api/appendix/image'
                 )
+                :
+                ''
             "
         >
             <!-- <img src="/upload/image/1620293001384096603.jpg" title=\"1620293001384096603.jpg\" alt=\"微信图片_20210414134633.jpg\"/> -->
-        </p>
+        </div>
     </div>
 </template>
 <script>
@@ -19,21 +22,27 @@ export default {
         return {
             listDetail: {},
             listId: "",
-            readnum: 0,
         };
     },
 
     created() {
         let vm = this;
         vm.getListDetail();
-        let param = {
-            id: vm.$route.query.item.id,
-            readnum: vm.$route.query.item.readnum,
-        };
-        vm.http.get("/api/comxact/save.jspx?resid=IDKO1B41KP", param);
+        vm.getReadNum()
     },
 
     methods: {
+        // 添加浏览量
+        getReadNum() {
+            let vm = this;
+            let param = {
+                rowid: vm.$route.query.item.id,
+                readnum: vm.$route.query.item.readnum + 1,
+            };
+            vm.http
+                .get("/api/comxact/save.jspx?resid=IDKOIBGAHP", param)
+        },
+
         // 点击获取列表详情
         getListDetail: async function () {
             let vm = this;
