@@ -9,7 +9,7 @@ const vm = new Vue({
 });
 
 const router = new Router({
-	// base:"/headline",
+	base:"/headline",
 	routes: [
 		{
 			path: '/',

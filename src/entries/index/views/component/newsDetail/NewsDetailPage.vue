@@ -76,8 +76,7 @@ export default {
 
 <style scoped lang="scss">
 .news-Detail-box {
-    padding: 10px;
-
+    padding: 10px 15px;
     h1 {
         font-size: 18px;
         padding: 5px 0;
