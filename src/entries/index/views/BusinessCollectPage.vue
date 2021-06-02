@@ -25,7 +25,7 @@
                 </van-tab>
                 <van-tab title="一线"></van-tab>
                 <van-tab title="媒体"></van-tab>
-                <van-tab title="公告"></van-tab>
+                <!-- <van-tab title="公告"></van-tab> -->
             </van-tabs>
         </section>
         <section v-else-if="searchList.length > 0">

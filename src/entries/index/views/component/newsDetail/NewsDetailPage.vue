@@ -1,19 +1,29 @@
 <template>
     <div class="news-Detail-box">
         <h1>{{ listDetail.title }}</h1>
+        <ul class="Detail-box-biaoji">
+            <li>
+                <span>发布人:</span>
+                <span>{{ listDetail.auth }}</span>
+            </li>
+            <li>
+                <span>{{ listDetail._audit_date }}</span>
+            </li>
+            <li>
+                <i class="iconfont icon-chakan"></i>
+                <span>{{ listDetail.readnum }}</span>
+            </li>
+        </ul>
         <div
             v-html="
-                listDetail.content ? 
-                listDetail.content.replace(
-                    '/appendix/image',
-                    '/api/appendix/image'
-                )
-                :
-                ''
+                listDetail.content
+                    ? listDetail.content.replace(
+                          '/appendix/image',
+                          '/api/appendix/image'
+                      )
+                    : ''
             "
-        >
-            <!-- <img src="/upload/image/1620293001384096603.jpg" title=\"1620293001384096603.jpg\" alt=\"微信图片_20210414134633.jpg\"/> -->
-        </div>
+        ></div>
     </div>
 </template>
 <script>
@@ -28,7 +38,7 @@ export default {
     created() {
         let vm = this;
         vm.getListDetail();
-        vm.getReadNum()
+        vm.getReadNum();
     },
 
     methods: {
@@ -39,8 +49,7 @@ export default {
                 rowid: vm.$route.query.item.id,
                 readnum: vm.$route.query.item.readnum + 1,
             };
-            vm.http
-                .get("/api/comxact/save.jspx?resid=IDKOIBGAHP", param)
+            vm.http.get("/api/comxact/save.jspx?resid=IDKOIBGAHP", param);
         },
 
         // 点击获取列表详情
@@ -67,6 +76,7 @@ export default {
             let data = res.data;
             if (data.status) {
                 vm.listDetail = data.data;
+                console.log(JSON.stringify(vm.listDetail));
                 toast.clear();
             }
         },
@@ -76,12 +86,27 @@ export default {
 
 <style scoped lang="scss">
 .news-Detail-box {
-    padding: 10px 15px;
+    padding: 10px 23px;
     h1 {
-        font-size: 18px;
+        font-size: 22px;
         padding: 5px 0;
     }
-
+    .Detail-box-biaoji {
+        margin: 10px 0;
+        display: flex;
+        li {
+            margin-right: 10px;
+            span {
+                font-size: 14px;
+                color: #8b8888ee;
+            }
+            i {
+                font-size: 22px;
+                vertical-align: sub;
+                margin-right: 3px;
+            }
+        }
+    }
     p {
         img {
             width: 100%;
