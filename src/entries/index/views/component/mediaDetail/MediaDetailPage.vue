@@ -28,12 +28,12 @@ export default {
         // 点击获取列表详情
         getListDetail: async function () {
             let vm = this;
-            // const toast = vm.$toast.loading({
-            //     message: "加载中...",
-            //     forbidClick: true,
-            //     loadingType: "spinner",
-            //     duration: 200000,
-            // });
+            const toast = vm.$toast.loading({
+                message: "加载中...",
+                forbidClick: true,
+                loadingType: "spinner",
+                duration: 200000,
+            });
 
             let param = {
                 rowid: vm.$route.query.video.id,
@@ -49,7 +49,7 @@ export default {
             let data = res.data;
             if (data.status) {
                 vm.listDetail = data.data;
-                // toast.clear();
+                toast.clear();
             }
         },
     },

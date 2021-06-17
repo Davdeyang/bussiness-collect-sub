@@ -50,6 +50,20 @@ const router = new Router({
 				title: "视频详情"
 			},
 		},
+		{
+			path: '/onlineDetail/:id',
+			component: (resolve) => require(['@/entries/index/views/component/onlineDetail/OneLineDetailsPage.vue'], resolve),
+			meta: {
+				title: "一线详情"
+			},
+		},
+		{
+			path: '/mediaDetail/:id',
+			component: (resolve) => require(['@/entries/index/views/component/mediaDetail/MediaDetailPage.vue'], resolve),
+			meta: {
+				title: "媒体详情"
+			},
+		},
 	]
 });
 /**

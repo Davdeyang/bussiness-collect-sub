@@ -7,14 +7,10 @@
                 :key="index"
                 @click="handleClickToVideoDetail(index, vid)"
             >
-                <!-- <video autoplay controls loop="true">
-                    <source
-                        :src="'/api/appendix/preview/' + vid.video_id + '.jspx'"
-                    />
-                </video> -->
-                <img
-                    :src="'/api/appendix/image/' + vid.picture_id + '.jspx'"
-                />
+                <video
+                    :src="'/api/appendix/preview/' + vid.video_id + '.jspx'"
+                    controls
+                ></video>
                 <div class="video-box-item-bottom">
                     <span>{{ vid.title }}</span>
                     <span>{{ vid.publish_time }}</span>
@@ -29,11 +25,12 @@ export default {
     data() {
         return {
             results: [],
-            imgSrc: "",
         };
     },
-    created() {
-        this.getVideoList();
+
+    mounted() {
+        let vm = this;
+        vm.getVideoList();
     },
 
     methods: {
@@ -58,7 +55,7 @@ export default {
             let data = res.data;
             if (data.status) {
                 data.data.forEach((item) => {
-                    if (item._category === "视频") {
+                    if (item._category === "媒体") {
                         vm.results.push(item);
                     }
                 });
@@ -69,7 +66,7 @@ export default {
         handleClickToVideoDetail(index, vid) {
             let vm = this;
             vm.$router.push({
-                path: `/videoDetail/${index}`,
+                path: `/mediaDetail/${index}`,
                 query: {
                     video: vid,
                 },
@@ -84,9 +81,6 @@ export default {
     background: #ffffff;
     .video-box-list {
         overflow: hidden;
-        img{
-            width: 100%;
-        }
         .video-box-list-item {
             margin-top: 10px;
             padding: 0 10px;
