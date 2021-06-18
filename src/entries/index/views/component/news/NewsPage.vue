@@ -1,5 +1,46 @@
 <template>
     <div class="news-box">
+        <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+            <van-list
+                v-model="loading"
+                :finished="finished"
+                finished-text="没有更多了"
+                @load="onLoad"
+            >
+                <ul class="news-box-list">
+                    <li
+                        class="news-box-list-item"
+                        v-for="(item, index) in newsList"
+                        :key="index"
+                        @click="handleClickToListDetail(index, item)"
+                    >
+                        <van-row>
+                            <van-col class="new-box-item-left" span="16">
+                                <p class="news-box-title">{{ item.title }}</p>
+                                <p>{{ item.digest }}</p>
+                                <span class="new-box-company"
+                                    >浏览量 {{ item.readnum }}</span
+                                >
+                                <span class="new-box-date">{{
+                                    item.publish_time
+                                }}</span>
+                            </van-col>
+                            <van-col class="new-box-item-right" span="8">
+                                <img
+                                    :src="
+                                        '/api/appendix/image/' +
+                                        item.picture_id +
+                                        '.jspx'
+                                    "
+                                    alt=""
+                                />
+                            </van-col>
+                        </van-row>
+                    </li>
+                </ul>
+            </van-list>
+        </van-pull-refresh> -->
+
         <ul class="news-box-list">
             <li
                 class="news-box-list-item"
@@ -10,8 +51,10 @@
                 <van-row>
                     <van-col class="new-box-item-left" span="16">
                         <p class="news-box-title">{{ item.title }}</p>
-                        <p>{{ item.digest }}</p>
-                        <span class="new-box-company">浏览量 {{ item.readnum }}</span>
+                        <!-- <p>{{ item.digest }}</p> -->
+                        <span class="new-box-company"
+                            >浏览量 {{ item.readnum }}</span
+                        >
                         <span class="new-box-date">{{
                             item.publish_time
                         }}</span>
@@ -40,6 +83,9 @@ export default {
             newsList: [],
             listId: "",
             listDetail: listDetails,
+            loading: false,
+            finished: false,
+            refreshing: false,
         };
     },
 
@@ -60,10 +106,13 @@ export default {
                 duration: 200000,
             });
 
-            let param = {};
+            let param = {
+                 sign: vm.$route.params.sign,
+            };
 
             const res = await vm.http.get(
-                "/api/selectact/query.jspx?resid=IDKO29N4TY",
+                // "/api/selectact/query.jspx?resid=IDKO29N4TY",
+                "api/portal.php?resid=headline.indexlist",
                 param
             );
             if (!res) {
@@ -91,6 +140,33 @@ export default {
                     item: item,
                 },
             });
+        },
+
+        onLoad() {
+            setTimeout(() => {
+                if (this.refreshing) {
+                    this.newsList = [];
+                    this.refreshing = false;
+                }
+
+                for (let i = 0; i < 0; i++) {
+                    this.newsList.push(this.newsList.length + 1);
+                }
+                this.loading = false;
+
+                if (this.newsList.length >= 10) {
+                    this.finished = true;
+                }
+            }, 1000);
+        },
+        onRefresh() {
+            // 清空列表数据
+            this.finished = false;
+
+            // 重新加载数据
+            // 将 loading 设置为 true，表示处于加载状态
+            this.loading = true;
+            this.onLoad();
         },
     },
 };
@@ -150,5 +226,8 @@ export default {
             width: 100%;
         }
     }
+}
+img {
+    width: 100%;
 }
 </style>

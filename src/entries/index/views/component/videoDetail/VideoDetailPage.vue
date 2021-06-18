@@ -1,9 +1,11 @@
 <template>
     <div class="video-detail-box">
         <video
-            :src="'/api/appendix/preview/' + listDetail.video_id +'.jspx'"
+            v-if="listDetail.video_id"
+            :src="'/api/appendix/preview/' + listDetail.video_id + '.jspx'"
             controls
         ></video>
+        <div class="prism-player" id="player-con"></div>
         <div class="video-box-item-bottom">
             <span>{{ listDetail.title }}</span>
         </div>
@@ -25,15 +27,10 @@ export default {
     },
 
     methods: {
+
         // 点击获取列表详情
         getListDetail: async function () {
             let vm = this;
-            // const toast = vm.$toast.loading({
-            //     message: "加载中...",
-            //     forbidClick: true,
-            //     loadingType: "spinner",
-            //     duration: 200000,
-            // });
 
             let param = {
                 rowid: vm.$route.query.video.id,
@@ -47,9 +44,9 @@ export default {
                 return;
             }
             let data = res.data;
+            console.log(JSON.stringify(data));
             if (data.status) {
                 vm.listDetail = data.data;
-                // toast.clear();
             }
         },
     },

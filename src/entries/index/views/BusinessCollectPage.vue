@@ -99,11 +99,13 @@ export default {
             });
 
             let param = {
-                title: vm.search,
+                // title: vm.search,
+                sign: vm.$route.params.sign,
             };
 
             const res = await vm.http.get(
-                "/api/selectact/query.jspx?resid=IDKO29N4TY",
+                "api/portal.php?resid=headline.indexlist",
+                // "/api/selectact/query.jspx?resid=IDKO29N4TY",
                 param
             );
             if (!res) {

@@ -19,5 +19,6 @@ export default {
 	APPENDIX_LOADS:api + '/appendix/loads.jspx',
 	//config:api + '/weixin/work/jssdk_config.jspx',
 	WXLOGIN:api + '/portal.php?resid=wwuser.login',
-	VIDEODETAIL: api + '/appendix/preview/4cc9fa5c1f87425bb65e18185073bcb4.jspx'
+	VIDEODETAIL: api + '/appendix/preview/',
+	DETAILS: api+ '/portal.php?resid=headline.indexlist',
 }
