@@ -1,134 +1,140 @@
 <template>
     <div class="news-box">
-        <!-- <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-            <van-list
-                v-model="loading"
-                :finished="finished"
-                finished-text="没有更多了"
-                @load="onLoad"
-            >
-                <ul class="news-box-list">
-                    <li
-                        class="news-box-list-item"
-                        v-for="(item, index) in newsList"
-                        :key="index"
-                        @click="handleClickToListDetail(index, item)"
-                    >
-                        <van-row>
-                            <van-col class="new-box-item-left" span="16">
-                                <p class="news-box-title">{{ item.title }}</p>
-                                <p>{{ item.digest }}</p>
-                                <span class="new-box-company"
-                                    >浏览量 {{ item.readnum }}</span
-                                >
-                                <span class="new-box-date">{{
-                                    item.publish_time
-                                }}</span>
-                            </van-col>
-                            <van-col class="new-box-item-right" span="8">
-                                <img
-                                    :src="
-                                        '/api/appendix/image/' +
-                                        item.picture_id +
-                                        '.jspx'
-                                    "
-                                    alt=""
-                                />
-                            </van-col>
-                        </van-row>
-                    </li>
-                </ul>
-            </van-list>
-        </van-pull-refresh> -->
-
-        <ul class="news-box-list">
-            <li
-                class="news-box-list-item"
-                v-for="(item, index) in newsList"
-                :key="index"
-                @click="handleClickToListDetail(index, item)"
-            >
-                <van-row>
-                    <van-col class="new-box-item-left" span="16">
-                        <p class="news-box-title">{{ item.title }}</p>
-                        <!-- <p>{{ item.digest }}</p> -->
-                        <span class="new-box-company"
-                            >浏览量 {{ item.readnum }}</span
-                        >
-                        <span class="new-box-date">{{
-                            item.publish_time
-                        }}</span>
-                    </van-col>
-                    <van-col class="new-box-item-right" span="8">
-                        <img
-                            :src="
-                                '/api/appendix/image/' +
-                                item.picture_id +
-                                '.jspx'
-                            "
-                            alt=""
-                        />
-                    </van-col>
-                </van-row>
-            </li>
-        </ul>
+        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+            <ul class="news-box-list">
+                <li
+                    class="news-box-list-item"
+                    v-for="(item, index) in newsList"
+                    :key="index"
+                    @click="handleClickToListDetail(index, item)"
+                >
+                    <van-row>
+                        <van-col class="new-box-item-left" span="16">
+                            <p class="news-box-title">{{ item.title }}</p>
+                            <span class="new-box-company"
+                                >浏览量 {{ item.readnum }}</span
+                            >
+                            <span class="new-box-date">{{
+                                item.publish_time
+                            }}</span>
+                        </van-col>
+                        <van-col class="new-box-item-right" span="8">
+                            <img
+                                :src="
+                                    '/api/appendix/image/' +
+                                    item.picture_id +
+                                    '.jspx'
+                                "
+                                alt=""
+                            />
+                        </van-col>
+                    </van-row>
+                </li>
+            </ul>
+        </van-pull-refresh>
     </div>
 </template>
 
 <script>
 import listDetails from "../../../js/listDetails";
+import { Toast } from "vant";
 export default {
     data() {
         return {
+            // news_list_two: [],
             newsList: [],
             listId: "",
             listDetail: listDetails,
-            loading: false,
+            page: 1,
+            rows: 10,
+            datax: 1,
             finished: false,
+            loading: false,
             refreshing: false,
         };
     },
 
-    mounted() {
+    created() {
         let vm = this;
-        vm.getNewsList();
+        vm.departementCard();
+    },
+    mounted() {
+        let state = JSON.stringify(this.$route.query.id);
+        if (state != "") {
+            this.roll();
+        }
     },
 
     methods: {
-        // 获取新闻列表
-        getNewsList: async function () {
+        onRefresh() {
+            // 清空列表数据
+            this.finished = false;
+
+            // 重新加载数据
+            // 将 loading 设置为 true，表示处于加载状态
+            this.loading = true;
+            this.departementCard();
+        },
+
+
+        departementCard: async function () {
             let vm = this;
-
-            const toast = vm.$toast.loading({
-                message: "加载中...",
-                forbidClick: true,
-                loadingType: "spinner",
-                duration: 200000,
-            });
-
             let param = {
-                 sign: vm.$route.params.sign,
+                category: "2SVV7JRO",
+                page: 1,
+                rows: 10,
             };
-
-            const res = await vm.http.get(
-                // "/api/selectact/query.jspx?resid=IDKO29N4TY",
+            const res = await vm.http.post(
                 "api/portal.php?resid=headline.indexlist",
                 param
             );
-            if (!res) {
-                return;
+            if (vm.refreshing) {
+                vm.newsList = [];
+                vm.refreshing = false;
             }
+            vm.loading = false;
             let data = res.data;
-            if (data.status) {
-                data.data.forEach((item) => {
-                    if (item._category === "新闻") {
-                        vm.newsList.push(item);
-                        vm.listId = item.id;
-                    }
-                });
-                // alert(JSON.stringify(vm.newsList))
-                toast.clear();
-            }
+            vm.newsList = data.data;
+        },
+
+        roll() {
+            let vm = this;
+            let num = 1;
+            //滚动加载
+            window.onscroll = function () {
+                var scrollTop =
+                    document.documentElement.scrollTop ||
+                    document.body.scrollTop; //获取距离顶部的距离
+                var windowHeight =
+                    document.documentElement.clientHeight ||
+                    document.body.clientHeight; //获取可视区域高度
+                var scrollHeight =
+                    document.documentElement.scrollHeight ||
+                    document.body.scrollHeight; //获取滚动条高度
+
+                if (scrollTop + windowHeight == scrollHeight) {
+                    vm.type = true;
+                    let page = ++num;
+                    let param = {
+                        category: "2SVV7JRO",
+                        page: page,
+                        rows: 10,
+                    };
+                    Toast.loading({
+                        message: "加载中...",
+                        forbidClick: true,
+                        loadingType: "spinner",
+                        duration:500,
+                    });
+                    const res = vm.http
+                        .post("api/portal.php?resid=headline.indexlist", param)
+                        .then((res) => {
+                            vm.type = false;
+                            let data = res.data;
+                            vm.newsList = vm.newsList.concat(data.data);
+                        });
+                }
+            };
         },
 
         // 进入详情页面
@@ -140,33 +146,6 @@ export default {
                     item: item,
                 },
             });
-        },
-
-        onLoad() {
-            setTimeout(() => {
-                if (this.refreshing) {
-                    this.newsList = [];
-                    this.refreshing = false;
-                }
-
-                for (let i = 0; i < 0; i++) {
-                    this.newsList.push(this.newsList.length + 1);
-                }
-                this.loading = false;
-
-                if (this.newsList.length >= 10) {
-                    this.finished = true;
-                }
-            }, 1000);
-        },
-        onRefresh() {
-            // 清空列表数据
-            this.finished = false;
-
-            // 重新加载数据
-            // 将 loading 设置为 true，表示处于加载状态
-            this.loading = true;
-            this.onLoad();
         },
     },
 };

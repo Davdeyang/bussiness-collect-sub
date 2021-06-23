@@ -24,7 +24,7 @@
                     <mine-video></mine-video>
                 </van-tab>
                 <van-tab title="一线"></van-tab>
-                <van-tab title="媒体"></van-tab>
+                <!-- <van-tab title="媒体"></van-tab> -->
                 <!-- <van-tab title="公告"></van-tab> -->
             </van-tabs>
         </section>
@@ -98,10 +98,7 @@ export default {
                 duration: 200000,
             });
 
-            let param = {
-                // title: vm.search,
-                sign: vm.$route.params.sign,
-            };
+            let param = {};
 
             const res = await vm.http.get(
                 "api/portal.php?resid=headline.indexlist",
